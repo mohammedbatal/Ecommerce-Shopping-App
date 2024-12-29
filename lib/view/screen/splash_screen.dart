@@ -46,12 +46,12 @@ class _SplashScreenState extends State<SplashScreen>
       const Duration(seconds: 3),
       () {
         if (mounted) {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => OnbordingScreen(),
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OnbordingScreen(),
+            ),
+          );
         }
       },
     );
