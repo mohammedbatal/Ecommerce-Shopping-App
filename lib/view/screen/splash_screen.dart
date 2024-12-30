@@ -75,7 +75,6 @@ class _SplashScreenState extends State<SplashScreen>
   void dispose() {
     _controller.dispose();
     _progressTimer?.cancel();
-    // TODO: implement dispose
     super.dispose();
   }
 
