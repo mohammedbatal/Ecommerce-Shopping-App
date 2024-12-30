@@ -1,5 +1,6 @@
 import 'package:e_commerce/theme/theme.dart';
 import 'package:e_commerce/view/screen/welcome_screen.dart';
+import 'package:e_commerce/view/widget/gradient_button.dart';
 import 'package:flutter/material.dart';
 
 class OnbordingScreen extends StatefulWidget {
@@ -94,7 +95,62 @@ class _OnbordingScreenState extends State<OnbordingScreen> {
                                     _currentPage == index ? 1 : 0.3),
                                 borderRadius: BorderRadius.circular(4)),
                           )),
-                )
+                ),
+                SizedBox(height: 32),
+                Row(
+                  children: [
+                    if (_currentPage > 0)
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () {
+                            _pageController.previousPage(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeInOut);
+                          },
+                          style: OutlinedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            side: BorderSide(
+                              color: AppTheme.primaryColor,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: Text(
+                            "Previous",
+                            style: TextStyle(
+                                color: AppTheme.primaryColor, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    if (_currentPage > 0) const SizedBox(width: 16),
+                    Expanded(
+                      child: GradientButton(
+                        text: _currentPage == _pages.length - 1
+                            ? 'Get Started'
+                            : 'Next',
+                        gradient: [
+                          AppTheme.primaryColor,
+                          AppTheme.primaryColor.withOpacity(0.8)
+                        ],
+                        onPressed: () {
+                          if (_currentPage < _pages.length - 1) {
+                            _pageController.nextPage(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeInOut);
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WelcomeScreen(),
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           )
