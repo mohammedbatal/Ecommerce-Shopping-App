@@ -1,0 +1,80 @@
+import 'package:e_commerce/theme/theme.dart';
+import 'package:flutter/material.dart';
+
+class CustomTextField extends StatelessWidget {
+  final String label;
+  final IconData prefixIcon;
+  final bool isPassword;
+  final TextInputType? keyboardTybe;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final Widget? suffixIcon;
+
+  const CustomTextField(
+      {super.key,
+      required this.label,
+      required this.prefixIcon,
+      this.isPassword = false,
+      this.keyboardTybe,
+      this.validator,
+      this.controller,
+      this.suffixIcon});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: AppTheme.primaryColor.withOpacity(0.1),
+              blurRadius: 20,
+              offset: Offset(0, 5),
+            ),
+          ]),
+      child: TextFormField(
+        controller: controller,
+        obscureText: isPassword,
+        keyboardType: keyboardTybe,
+        validator: validator,
+        style: TextStyle(color: AppTheme.textPrimary, fontSize: 16),
+        decoration: InputDecoration(
+          labelText: label,
+          labelStyle: TextStyle(
+            color: AppTheme.TextSecondry,
+            fontSize: 14,
+          ),
+          prefixIcon: Icon(prefixIcon, color: AppTheme.primaryColor),
+          suffixIcon: suffixIcon ??
+              (isPassword
+                  ? IconButton(
+                      icon: Icon(Icons.visibility_outlined),
+                      onPressed: () {},
+                      color: AppTheme.primaryColor,
+                    )
+                  : null),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+              color: AppTheme.primaryColor,
+              width: 2,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+                color: AppTheme.TextSecondry.withOpacity(0.1), width: 1),
+          ),
+        ),
+      ),
+    );
+  }
+}
