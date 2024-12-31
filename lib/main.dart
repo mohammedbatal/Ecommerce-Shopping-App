@@ -16,12 +16,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ShopEase',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.LightTheme, 
+      theme: AppTheme.LightTheme,
       home: SplashScreen(),
     );
   }

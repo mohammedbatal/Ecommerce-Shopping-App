@@ -1,4 +1,6 @@
 import 'package:e_commerce/theme/theme.dart';
+import 'package:e_commerce/view/screen/login_screen.dart';
+import 'package:e_commerce/view/screen/sign_up_screen.dart';
 import 'package:e_commerce/view/widget/gradient_button.dart';
 import 'package:flutter/material.dart';
 
@@ -71,12 +73,12 @@ class WelcomeScreen extends StatelessWidget {
                   GradientButton(
                       text: ('Get Started'),
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => SignUpScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignUpScreen(),
+                          ),
+                        );
                       }),
                   SizedBox(height: 16),
                   SizedBox(
@@ -88,12 +90,12 @@ class WelcomeScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12))),
                         onPressed: () {
-                          //      Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) =>LoginScreen(),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
                         },
                         child: Text(
                           "I already have an acount",
