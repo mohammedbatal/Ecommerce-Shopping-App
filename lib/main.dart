@@ -2,6 +2,7 @@ import 'package:e_commerce/theme/theme.dart';
 import 'package:e_commerce/view/screen/choose_language_screen.dart';
 import 'package:e_commerce/view/screen/forget_email_screen.dart';
 import 'package:e_commerce/view/screen/forget_password_screen.dart';
+import 'package:e_commerce/view/screen/main_screen.dart';
 import 'package:e_commerce/view/screen/otp_verification_screen.dart';
 import 'package:e_commerce/view/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'ShopEase',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.LightTheme,
-      home: ChooselanguageScreen(),
+      home: MainScreen(),
     );
   }
 }
