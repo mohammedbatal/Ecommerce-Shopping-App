@@ -1,4 +1,5 @@
 import 'package:e_commerce/theme/theme.dart';
+import 'package:e_commerce/view/screen/product_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -111,7 +112,8 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: TextField(
-                              // onSubmitted: (val) {Navigator.push(context,MaterialPageRoute(builder: (context) => SearchScreen(),),);},
+                              // onSubmitted: (val) {Navigator.push(context,MaterialPageRoute(
+                              //builder: (context) => SearchScreen(),),);},
                               decoration: InputDecoration(
                                 hintText: 'Search Products...',
                                 border: InputBorder.none,
@@ -242,7 +244,15 @@ class HomeScreen extends StatelessWidget {
                           itemCount: _images.length,
                           itemBuilder: (context, index) {
                             return InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        ProductDetailsScreen(),
+                                  ),
+                                );
+                              },
                               child: Container(
                                 width: 200,
                                 margin: EdgeInsets.all(8),
